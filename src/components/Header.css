@@ -1,0 +1,28 @@
+/* src/components/Header.css */
+.header-container {
+    background-color: #333; /* Dark grey background */
+    color: white;           /* White text */
+    padding: 1rem 2rem;     /* Spacing inside the box */
+    display: flex;          /* Aligns items in a row */
+    justify-content: space-between; /* Spacing between logo and nav */
+    align-items: center;    /* Vertically centers items */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Subtle shadow at bottom */
+}
+
+.header-logo {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Basic styling for a hypothetical navigation */
+.header-nav a {
+    color: #ddd;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 1rem;
+}
+
+.header-nav a:hover {
+    color: white;
+}
