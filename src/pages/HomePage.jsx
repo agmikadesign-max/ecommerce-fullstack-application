@@ -1,9 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../components/Header.jsx';
-import { products } from '../data/products.js';
 
 function HomePage() {
+
+  const [products, setProducts] = useState([]);
+
+  useEffect (() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch ('http://localhost:3000/products');
+        const data = await response.json();
+        setProducts(data);
+      } catch (error) {
+        console.error("Failed to fetch products:", error);
+      }
+    };
+
+  fetchProducts();
+  }, []);
+
   return (
+    <>
+    <title>Store.</title>
     <div className="font-sans bg-gray-50 min-h-screen pb-20">
       <Header />
 
@@ -106,6 +124,7 @@ function HomePage() {
         </div>
       </main>
     </div>
+    </> 
   );
 }
 
