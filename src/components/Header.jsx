@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from 'react-router';
 
 function Header() {
   return (
@@ -7,12 +7,12 @@ function Header() {
       
       {/* LEFT: Logo - darker text for contrast on white */}
       <div className="flex items-center">
-        <a href="#" className="flex items-center space-x-2 cursor-pointer group">
+        <Link to="/" className="flex items-center space-x-2 cursor-pointer group">
            {/* If you don't have a dark logo, we can use text for now or a filter */}
            <span className="text-2xl font-black tracking-tighter text-indigo-600 group-hover:scale-105 transition">
              STORE.
            </span>
-        </a>
+        </Link>
       </div>
 
       {/* MIDDLE: Search Bar - Pill shape, soft gray */}
@@ -35,12 +35,12 @@ function Header() {
       {/* RIGHT: Minimalist Icons */}
       <div className="flex items-center space-x-6">
         
-        <a href="#" className="hidden sm:block text-gray-500 hover:text-indigo-600 font-bold text-sm transition">
+        <Link to ="/orders" className="hidden sm:block text-gray-500 hover:text-indigo-600 font-bold text-sm transition">
           Orders
-        </a>
+        </Link>
 
         {/* Modern Cart Button */}
-        <a href="#" className="flex items-center group relative cursor-pointer">
+        <Link to = "/checkout" className="flex items-center group relative cursor-pointer">
           <div className="p-3 rounded-full bg-gray-50 group-hover:bg-indigo-50 transition duration-300">
             {/* Using an SVG icon directly for cleaner look than the image */}
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-700 group-hover:text-indigo-600 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -52,7 +52,7 @@ function Header() {
           <span className="absolute top-0 right-0 h-5 w-5 bg-indigo-600 text-white text-[10px] font-bold flex items-center justify-center rounded-full border-2 border-white shadow-sm transform group-hover:scale-110 transition">
             3
           </span>
-        </a>
+        </Link>
         
       </div>
     </header>

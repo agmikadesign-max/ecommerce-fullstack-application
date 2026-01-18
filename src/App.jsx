@@ -1,14 +1,20 @@
-import { Routes, Route } from 'react-router';
+import React from 'react';
+// KEEP THIS: Import everything from 'react-router' since that is what you have installed
+import { Routes, Route } from 'react-router'; 
+
 import HomePage from './pages/HomePage.jsx';
+import CheckoutPage from './pages/CheckoutPage.jsx';
+import OrdersPage from './pages/OrdersPage.jsx';
+import TrackingPage from './pages/TrackingPage.jsx';
 
 function App() {
   return (
-    <div>
-      <Routes>
-        <Route index element={<HomePage />} />
-        <Route path='checkout' element={<div>Test Checkout routing</div>} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/checkout" element={<CheckoutPage />} />
+      <Route path="/orders" element={<OrdersPage />} />
+      <Route path="/tracking" element={<TrackingPage />} />
+    </Routes>
   );
 }
 
