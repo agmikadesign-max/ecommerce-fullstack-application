@@ -1,22 +1,24 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios'; // 1. Import Axios
 import Header from '../components/Header.jsx';
 
 function HomePage() {
-
   const [products, setProducts] = useState([]);
 
-  useEffect (() => {
+  useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch ('http://localhost:3000/products');
-        const data = await response.json();
-        setProducts(data);
+        // 2. Use axios.get instead of fetch
+        const response = await axios.get('http://localhost:3000/products');
+        
+        // 3. Axios puts the actual JSON inside 'response.data' automatically
+        setProducts(response.data); 
       } catch (error) {
         console.error("Failed to fetch products:", error);
       }
     };
 
-  fetchProducts();
+    fetchProducts();
   }, []);
 
   return (
@@ -27,33 +29,25 @@ function HomePage() {
 
       <main className="pt-[120px] max-w-[1600px] mx-auto px-6">
         
-        {/* --- NEW HERO SECTION START --- */}
+        {/* HERO SECTION */}
         <div className="relative bg-gradient-to-r from-indigo-600 to-purple-700 rounded-3xl p-8 md:p-16 mb-12 overflow-hidden shadow-2xl text-white">
-          
-          {/* Background Decoration (Abstract Blobs) */}
           <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 right-20 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl"></div>
-
-          {/* Hero Content */}
           <div className="relative z-10 max-w-2xl">
-            {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md border border-white/10 rounded-full px-4 py-1.5 mb-6">
               <span className="flex h-2 w-2 rounded-full bg-green-400 animate-pulse"></span>
               <span className="text-xs font-bold tracking-wide uppercase">New Collection 2025</span>
             </div>
-
             <h1 className="text-4xl md:text-6xl font-black tracking-tight leading-tight mb-6">
               Upgrade your <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-indigo-200">
                 everyday lifestyle.
               </span>
             </h1>
-
             <p className="text-lg text-indigo-100 mb-8 leading-relaxed max-w-lg font-medium">
               Discover the latest trends in tech, fashion, and home essentials. 
               Quality you can trust, prices you'll love.
             </p>
-
             <div className="flex flex-wrap gap-4">
               <button className="bg-white text-indigo-600 px-8 py-4 rounded-full font-bold text-base hover:bg-gray-100 hover:scale-105 transition-all shadow-lg active:scale-95">
                 Shop Now
@@ -64,19 +58,16 @@ function HomePage() {
             </div>
           </div>
         </div>
-        {/* --- HERO SECTION END --- */}
 
 
-        {/* Section Title */}
         <div className="flex items-center justify-between mb-8">
            <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight">
              Trending Now
            </h1>
-           {/* Optional 'View All' link */}
            <a href="#" className="text-indigo-600 font-bold text-sm hover:underline">View all items &rarr;</a>
         </div>
 
-        {/* Product Grid */}
+        {/* GRID LAYOUT */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           
           {products.map((product) => (
@@ -124,7 +115,7 @@ function HomePage() {
         </div>
       </main>
     </div>
-    </> 
+    </>
   );
 }
 
