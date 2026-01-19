@@ -9,7 +9,7 @@ function HomePage() {
     const fetchProducts = async () => {
       try {
         // 2. Use axios.get instead of fetch
-        const response = await axios.get('http://localhost:3000/products');
+        const response = await axios.get('/api/products');
         
         // 3. Axios puts the actual JSON inside 'response.data' automatically
         setProducts(response.data); 

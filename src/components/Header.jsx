@@ -10,7 +10,7 @@ function Header() {
   useEffect(() => {
     const fetchCartQuantity = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/cart');
+        const response = await axios.get('/api/cart');
         
         // Calculate total items (sum of all quantities)
         // Example: 2 socks + 1 basketball = 3 items total

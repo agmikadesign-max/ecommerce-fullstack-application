@@ -7,7 +7,7 @@ function CheckoutPage() {
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/cart');
+        const response = await axios.get('/api/cart');
         setCartItems(response.data);
       } catch (error) {
         console.error("Error fetching cart:", error);
