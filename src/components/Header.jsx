@@ -82,16 +82,31 @@ function Header() {
 
       {/* RIGHT: Icons & User */}
       <div className="flex items-center gap-6">
-        
-        <Link to="/orders" className="hidden sm:block text-gray-400 hover:text-indigo-600 font-bold text-sm transition tracking-tight">
-          Orders
-        </Link>
+        {user && (
+          <Link
+            to="/orders"
+            className="hidden sm:block text-gray-400 hover:text-indigo-600 font-bold text-sm transition tracking-tight"
+          >
+            Orders
+          </Link>
+        )}
 
         {/* Cart Button */}
         <Link to="/checkout" className="relative group p-2">
           <div className="transition-transform duration-200 group-hover:scale-110 group-active:scale-95">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-gray-700 group-hover:text-indigo-600 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-7 w-7 text-gray-700 group-hover:text-indigo-600 transition"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2.5}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+              />
             </svg>
           </div>
           {cartQuantity > 0 && (
@@ -107,7 +122,6 @@ function Header() {
         ) : (
           <LoginButton />
         )}
-
       </div>
     </header>
   );
