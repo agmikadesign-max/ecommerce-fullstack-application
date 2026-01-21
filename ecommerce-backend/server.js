@@ -5,6 +5,8 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { sequelize } from './models/index.js'; // DB Connection
 import { Product } from './models/Product.js'; // Product Model
+import { User } from './models/User.js'; // 1. Import User Model
+import authRouter from './routes/auth.js';
 
 // Import Routes
 import productsRouter from './routes/products.js';
@@ -27,6 +29,7 @@ app.use('/images', express.static(path.join(__dirname, 'images')));
 // API Routes
 app.use('/api/products', productsRouter);
 app.use('/api/cart', cartRouter);
+app.use('/api/auth', authRouter);
 
 // --- DATABASE SYNC & SEED ---
 // This runs when the server starts
